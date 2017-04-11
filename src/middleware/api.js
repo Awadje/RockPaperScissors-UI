@@ -39,7 +39,7 @@ const processRequest = (action, service, method, params, id) => {
       return service.patch(id, params)
 
     case DESTROY :
-      return service.destroy(id, params)
+      return service.remove(id, params)
 
     default :
       console.error(

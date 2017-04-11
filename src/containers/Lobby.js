@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { connect } from 'react-redux'
 import subscribeToGames from '../actions/games/subscribe'
 import createGame from '../actions/games/create'
+import removeGame from '../actions/games/remove'
 import './Lobby.sass'
 
 class Lobby extends PureComponent {
@@ -16,6 +17,14 @@ class Lobby extends PureComponent {
       onTouchTap={this.props.createGame}
       label="Create Game"
       primary={true} />
+}
+
+  renderRemoveGameButton() {
+    return <RaisedButton
+      onTouchTap={this.props.removeGame}
+      label="Remove Game"
+      primary={true} />
+
   }
   render() {
     return (
@@ -38,6 +47,7 @@ class Lobby extends PureComponent {
                   zDepth={1}
                   style={{ padding: '12px 24px' }}>
                   <h4>{ game.title }</h4>
+                    { this.renderRemoveGameButton() }
                 </Paper>
               )
             })}
@@ -49,4 +59,4 @@ class Lobby extends PureComponent {
 }
 
 const mapStateToProps = ({ games }) => ({ games })
-export default connect(mapStateToProps, { subscribeToGames, createGame })(Lobby)
+export default connect(mapStateToProps, { subscribeToGames, createGame, removeGame })(Lobby)
