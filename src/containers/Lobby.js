@@ -14,8 +14,6 @@ class Lobby extends PureComponent {
     this.props.subscribeToGames()
   }
 
-
-
   renderCreateGameButton() {
     return <RaisedButton
       onTouchTap={this.props.createGame}
@@ -28,23 +26,19 @@ class Lobby extends PureComponent {
       onTouchTap={this.props.removeGame}
       label="Clear Games"
       primary={true} />
-
   }
 
-  renderStartGameButton() {
+  renderJoinGameButton() {
     return <RaisedButton
-      onTouchTap={this.props.GAME_PATH}
-      label="Start Game"
+      onTouchTap={this.props.joinGame}
+      label="Join Game"
       secondary={true} />
-
-
   }
 
   render() {
     return (
       <div className="games lobby">
         <h1>Lobby</h1>
-
         { this.props.games.length === 0 ?
           <div className="no-results">
             <h2>No Games yet! Feel free to create one!</h2>
@@ -62,7 +56,7 @@ class Lobby extends PureComponent {
                   zDepth={1}
                   style={{ padding: '12px 24px' }}>
                   <h4>{ game.title }</h4>
-                    { game.playerIds.length < 2 && <button onClick={() => {this.props.joinGame(game._id)}}>Join</button> }
+                  { this.renderJoinGameButton() }
                 </Paper>
               )
             })}
