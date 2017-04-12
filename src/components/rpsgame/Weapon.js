@@ -19,13 +19,11 @@ class Weapon extends React.Component {
 
 
 
-      <button onClick={() => (actions.change('', ''))}>
-      Choose
-      </button>
+      <button onClick={() => {console.log(this.props)}}>Choose</button>
 
     );
   }
 }
 
-// const mapStateToProps = ({ weapon }) => ({ weapon })
+const mapStateToProps = ({ weapon }) => ({ weapon })
 export default Weapon
