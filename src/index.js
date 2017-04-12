@@ -11,7 +11,7 @@ import ChatRoom from './containers/ChatRoom'
 import Lobby from './containers/Lobby'
 import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
-import rpsGame from './containers/rpsGame'
+import playfield from './containers/rpsgame/playfield'
 
 import {
   ROOT_PATH,
@@ -33,7 +33,7 @@ ReactDOM.render(
         <Route path={CHAT_PATH} component={ChatRoom} />
         <Route path={USER_SIGN_UP_PATH} component={SignUp} />
         <Route path={USER_SIGN_IN_PATH} component={SignIn} />
-        <Route path={GAME_PATH} component={rpsGame} />
+        <Route path={GAME_PATH} component={playfield} />
       </Route>
     </Router>
   </Provider>,

@@ -7,6 +7,7 @@ import createGame from '../actions/games/create'
 import removeGame from '../actions/games/remove'
 import './Lobby.sass'
 import GAME_PATH from '../routes'
+import weapon from '../containers/rpsgame/playfield'
 
 class Lobby extends PureComponent {
   componentWillMount() {
@@ -61,6 +62,7 @@ class Lobby extends PureComponent {
                   zDepth={1}
                   style={{ padding: '12px 24px' }}>
                   <h4>{ game.title }</h4>
+                  <Weapon />
 
                     { this.renderStartGameButton() }
                 </Paper>
