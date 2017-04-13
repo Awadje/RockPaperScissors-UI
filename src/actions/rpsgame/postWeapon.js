@@ -1,13 +1,13 @@
-import { CALL_API, CREATE } from '../../middleware/api'
+import { CALL_API, UPDATE } from '../../middleware/api'
 
 export default (weaponText) => {
   return {
     [CALL_API]: {
       service: 'games',
-      method: CREATE,
-      type: 'MESSAGE_POSTED',
+      method: UPDATE,
+      type: 'GAME_UPDATED',
       authenticate: true,
-      params: { text: weaponText }
+      params: { playerInput: weaponText }
     }
   }
 }

@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 import subscribeToGames from '../actions/games/subscribe'
 import createGame from '../actions/games/create'
 import removeGame from '../actions/games/remove'
-import joinGame from '../actions/games/join'
 import './Lobby.sass'
 import GAME_PATH from '../routes'
+import joinGame from '../actions/games/joinGame'
+
 
 class Lobby extends PureComponent {
   componentWillMount() {
@@ -21,12 +22,6 @@ class Lobby extends PureComponent {
        />
 }
 
-  renderRemoveGameButton() {
-    return <RaisedButton
-      onTouchTap={this.props.removeGame}
-      label="Clear Games"
-      primary={true} />
-  }
 
   renderJoinGameButton() {
     return <RaisedButton
@@ -34,6 +29,7 @@ class Lobby extends PureComponent {
       label="Join Game"
       secondary={true} />
   }
+
 
   render() {
     return (
@@ -47,7 +43,7 @@ class Lobby extends PureComponent {
           <div className="games list">
             <div className="actions">
               { this.renderCreateGameButton() }
-              { this.renderRemoveGameButton() }
+
             </div>
 
             { this.props.games.map((game) => {
@@ -56,7 +52,9 @@ class Lobby extends PureComponent {
                   zDepth={1}
                   style={{ padding: '12px 24px' }}>
                   <h4>{ game.title }</h4>
-                  { this.renderJoinGameButton() }
+
+                    { game.playerIds.length < 2 && <button onClick={() => {this.props.joinGame(game._id)}}>Join</button> }
+
                 </Paper>
               )
             })}
@@ -68,4 +66,6 @@ class Lobby extends PureComponent {
 }
 
 const mapStateToProps = ({ games }) => ({ games })
-export default connect(mapStateToProps, { subscribeToGames, createGame, removeGame, joinGame })(Lobby)
+
+export default connect(mapStateToProps, { subscribeToGames, createGame, joinGame })(Lobby)
+
