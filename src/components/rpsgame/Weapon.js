@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-
+import PlayerInput from '../../actions/rpsgame/postWeapon'
 
 
 
@@ -25,5 +25,5 @@ class Weapon extends React.Component {
   }
 }
 
-const mapStateToProps = ({ weapon }) => ({ weapon })
-export default Weapon
+// const mapStateToProps = ({ weapon }) => ({ weapon })
+// export default Weapon

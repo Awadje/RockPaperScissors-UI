@@ -7,6 +7,7 @@ import createGame from '../actions/games/create'
 import removeGame from '../actions/games/remove'
 import './Lobby.sass'
 import GAME_PATH from '../routes'
+import joinGame from '../actions/games/joinGame'
 
 
 class Lobby extends PureComponent {
@@ -23,22 +24,6 @@ class Lobby extends PureComponent {
        />
 }
 
-  renderRemoveGameButton() {
-    return <RaisedButton
-      onTouchTap={this.props.removeGame}
-      label="Clear Games"
-      primary={true} />
-
-  }
-
-  renderStartGameButton() {
-    return <RaisedButton
-      onTouchTap={this.props.GAME_PATH}
-      label="Start Game"
-      secondary={true} />
-
-
-  }
 
   render() {
     return (
@@ -53,7 +38,7 @@ class Lobby extends PureComponent {
           <div className="games list">
             <div className="actions">
               { this.renderCreateGameButton() }
-              { this.renderRemoveGameButton() }
+
             </div>
 
             { this.props.games.map((game) => {
@@ -62,8 +47,7 @@ class Lobby extends PureComponent {
                   zDepth={1}
                   style={{ padding: '12px 24px' }}>
                   <h4>{ game.title }</h4>
-
-                    { this.renderStartGameButton() }
+                    { game.playerIds.length < 2 && <button onClick={() => {this.props.joinGame(game._id)}}>Join</button> }
                 </Paper>
               )
             })}
@@ -75,4 +59,4 @@ class Lobby extends PureComponent {
 }
 
 const mapStateToProps = ({ games }) => ({ games })
-export default connect(mapStateToProps, { subscribeToGames, createGame, removeGame })(Lobby)
+export default connect(mapStateToProps, { subscribeToGames, createGame, joinGame })(Lobby)
