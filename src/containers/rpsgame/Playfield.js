@@ -1,61 +1,30 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import Weapon from '../../components/rpsgame/Weapon'
 import subscribeToGames from '../../actions/games/subscribe'
 import subscribeToUsers from '../../actions/users/subscribe'
 import postWeapon from '../../actions/rpsgame/postWeapon'
-
-
-
+import './Playfield.sass'
 
 export default class Playfield extends React.Component {
-  // renderWeapon(weapon) {
-  //   return <Weapon weapon={weapon} />;
-  // }
-
-  // constructor() {
-  //   super()
-  //
-  //   this.state = {
-  //     weapon: ''
-  //   }
-  // }
-
-  componentWillMount() {
-    // this.props.subscribeToUsers()
-  }
-
-  componentDidUpdate(prevProps) {
-    // if (prevProps.weapons.length === this.props.weapons.length) return
-    //
-    // console.debug(this.refs.weapon.scrollTop, this.refs.weapon.scrollHeight)
-    // this.refs.weapon.scrollTop = this.refs.weapon.scrollHeight
-  }
 
   submitWeapon(weapon) {
-     const weaponpost = this.refs.weapon.getValue().trim()
-     if (weapon === '') return
-     this.props.postWeapon(weapon)
-     this.setState({
-       weapon: ''
-     })
-   }
-
-  updateWeapon(event) {
+    console.log(weapon)
+    // const weapon = this.refs.weapon.getValue().trim()
+    // if (weapon === '') return
+    // this.props.postWeapon(weapon)
     // this.setState({
-    //   weapon: event.target.value,
+    //   weapon: ''
     // })
   }
 
-
   render() {
-
     return (
-      <div>
+      <div className="playfield">
+        <h1>CHOOSE YOUR WEAPON!</h1>
         <div className="board-row">
-          <button onClick={() => { this.submitWeapon("Rock") }}>Rock</button>
-            <button onClick={() => { this.submitWeapon("Paper") }}>Paper</button>
-              <button onClick={() => { this.submitWeapon("Scissors") }}>Scissors</button>
+          <button onClick={() => { this.submitWeapon("Rock") }}><img src="http://www.clker.com/cliparts/i/w/5/M/Y/x/cartoon-stone-hi.png" /></button>
+            <button onClick={() => { this.submitWeapon("Paper") }}><img src="https://s-media-cache-ak0.pinimg.com/236x/36/f3/41/36f3412fe8ff1220a0e74f6b984a73ff.jpg" /></button>
+              <button onClick={() => { this.submitWeapon("Scissors") }}><img src="http://www.clipartbest.com/cliparts/Kcn/X4g/KcnX4gg9i.png" /></button>
         </div>
       </div>
     );
@@ -63,4 +32,4 @@ export default class Playfield extends React.Component {
 }
 //
 // const mapStateToProps = ({ games }) => ({ games })
-// export default connect(mapStateToProps, { renderWeapon, subscribeToGames, postWeapon, subscribeToUsers })(Playfield)
+// export default connect(mapStateToProps, { postWeapon })(Playfield)
