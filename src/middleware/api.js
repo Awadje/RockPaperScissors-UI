@@ -66,6 +66,7 @@ export default store => next => action => {
         .then((result) => {
           next({ type: API_READY })
 
+
           return next({
             type,
             payload: result.data

@@ -8,6 +8,7 @@ import removeGame from '../actions/games/remove'
 import './Lobby.sass'
 import GAME_PATH from '../routes'
 import joinGame from '../actions/games/joinGame'
+import { history } from '../store'
 
 
 class Lobby extends PureComponent {
@@ -21,6 +22,12 @@ class Lobby extends PureComponent {
       label="Create Game"
        />
 }
+
+  joinGameId(game) {
+    this.props.joinGame(game._id)
+    history.push('/game/' + game._id)
+    // console.log("hoi")
+  }
 
 
   renderJoinGameButton() {
@@ -53,7 +60,13 @@ class Lobby extends PureComponent {
                   style={{ padding: '12px 24px' }}>
                   <h4>{ game.title }</h4>
 
+                    { game.playerIds.length < 2 && <button onClick={() => {
+                      this.joinGameId(game)
+                    }}>Join</button> }
+
+
                     { game.playerIds.length < 2 && <button onClick={() => {this.props.joinGame(game._id)}}>Join</button> }
+
 
                 </Paper>
               )
@@ -68,4 +81,3 @@ class Lobby extends PureComponent {
 const mapStateToProps = ({ games }) => ({ games })
 
 export default connect(mapStateToProps, { subscribeToGames, createGame, joinGame })(Lobby)
-
