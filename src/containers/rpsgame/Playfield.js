@@ -22,9 +22,9 @@ export default class Playfield extends React.Component {
       <div className="playfield">
         <h1>CHOOSE YOUR WEAPON!</h1>
         <div className="board-row">
-          <button onClick={() => { this.submitWeapon("Rock") }}><img src="http://www.clker.com/cliparts/i/w/5/M/Y/x/cartoon-stone-hi.png" /></button>
-            <button onClick={() => { this.submitWeapon("Paper") }}><img src="https://s-media-cache-ak0.pinimg.com/236x/36/f3/41/36f3412fe8ff1220a0e74f6b984a73ff.jpg" /></button>
-              <button onClick={() => { this.submitWeapon("Scissors") }}><img src="http://www.clipartbest.com/cliparts/Kcn/X4g/KcnX4gg9i.png" /></button>
+          <button onClick={() => { this.submitWeapon("Rock") }}>ROCK</button>
+            <button onClick={() => { this.submitWeapon("Paper") }}>PAPER</button>
+              <button onClick={() => { this.submitWeapon("Scissors") }}>SCISSORS</button>
         </div>
       </div>
     );
