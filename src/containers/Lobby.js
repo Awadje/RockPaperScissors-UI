@@ -20,6 +20,7 @@ class Lobby extends PureComponent {
     return <RaisedButton
       onTouchTap={this.props.createGame}
       label="Create Game"
+
        />
 }
 
@@ -64,8 +65,6 @@ class Lobby extends PureComponent {
                       this.joinGameId(game)
                     }}>Join</button> }
 
-
-                    { game.playerIds.length < 2 && <button onClick={() => {this.props.joinGame(game._id)}}>Join</button> }
 
 
                 </Paper>
