@@ -33,13 +33,16 @@ PostWeapon(weapon) {
 
     return (
       <div className = "playfield">
-      <h1>The winner is: {currentGame.winner}</h1>
+      <h1><strong>Welcome to {currentGame.title}</strong></h1>
+
       <h1>CHOOSE YOUR WEAPON!</h1>
+
         <div className="board-row">
           <button onClick={() => {this.props.PostWeapon(1, GameId)}}><img src="https://static.independent.co.uk/s3fs-public/styles/story_medium/public/thumbnails/image/2014/08/21/10/dwayne-the-rock.jpg" /></button>
             <button onClick={() => {this.props.PostWeapon(2, GameId)}}><img src="https://previews.123rf.com/images/sundikov/sundikov0911/sundikov091100021/5910532-Money-on-white-background-Stock-Photo-money-falling-sky.jpg" /></button>
               <button onClick={() => {this.props.PostWeapon(3, GameId)}}><img src="http://www.hollywood-collectibles.com/store/images/D/Edward-Detail-62.jpg" /></button>
         </div>
+        <h1>WINNER: {currentGame.winner}</h1>
       </div>
     );
   }
