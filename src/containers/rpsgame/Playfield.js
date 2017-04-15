@@ -33,14 +33,13 @@ PostWeapon(weapon) {
 
     return (
       <div className = "playfield">
-      <h1><strong>Welcome to {currentGame.title}</strong></h1>
-
+      <h1>Welcome to {currentGame.title}</h1>
       <h1>CHOOSE YOUR WEAPON!</h1>
 
-        <div className="board-row">
-          <button onClick={() => {this.props.PostWeapon(1, GameId)}}><img src="https://static.independent.co.uk/s3fs-public/styles/story_medium/public/thumbnails/image/2014/08/21/10/dwayne-the-rock.jpg" /></button>
-            <button onClick={() => {this.props.PostWeapon(2, GameId)}}><img src="https://previews.123rf.com/images/sundikov/sundikov0911/sundikov091100021/5910532-Money-on-white-background-Stock-Photo-money-falling-sky.jpg" /></button>
-              <button onClick={() => {this.props.PostWeapon(3, GameId)}}><img src="http://www.hollywood-collectibles.com/store/images/D/Edward-Detail-62.jpg" /></button>
+          <div className="board-row">
+          <center><button onClick={() => {this.props.PostWeapon(1, GameId)}}><img src="https://res.cloudinary.com/dnbyfobad/image/upload/v1492276214/rock-eyebrow_g7yazh.jpg" /><p>the ROCK </p></button>
+            <button onClick={() => {this.props.PostWeapon(2, GameId)}}><img src="https://res.cloudinary.com/dnbyfobad/image/upload/v1492276269/money2_pzai3c.jpg" /><p>$$$ PAPER $$$</p></button>
+              <button onClick={() => {this.props.PostWeapon(3, GameId)}}><img src="https://res.cloudinary.com/dnbyfobad/image/upload/v1492276208/scissors_arodfu.jpg" /><p>SCISSORS guy? </p></button></center>
         </div>
         <h1>WINNER: {currentGame.winner}</h1>
       </div>
