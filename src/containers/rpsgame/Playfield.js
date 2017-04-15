@@ -33,7 +33,7 @@ PostWeapon(weapon) {
 
     return (
       <div className = "playfield">
-      <h1>{currentGame.title}</h1>
+      <h1>The winner is: {currentGame.winner}</h1>
       <h1>CHOOSE YOUR WEAPON!</h1>
         <div className="board-row">
           <button onClick={() => {this.props.PostWeapon(1, GameId)}}><img src="https://static.independent.co.uk/s3fs-public/styles/story_medium/public/thumbnails/image/2014/08/21/10/dwayne-the-rock.jpg" /></button>
